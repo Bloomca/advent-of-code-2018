@@ -5,6 +5,7 @@ module.exports = {
     "no-plusplus": 0,
     "no-continue": 0,
     "comma-dangle": 0,
-    "no-use-before-define": 0
+    "no-use-before-define": 0,
+    "arrow-parens": 0
   }
 };
