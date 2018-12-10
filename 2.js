@@ -1,3 +1,5 @@
+module.exports.analyzeString = analyzeString;
+
 const fs = require("fs");
 
 const input = fs.readFileSync("2_input.txt", { encoding: "utf-8" });
@@ -18,7 +20,9 @@ const result = strings.reduce((acc, str) => {
   return acc;
 }, initialValue);
 
-console.log(result, result.double * result.triple);
+if (require.main === module) {
+  console.log(result, result.double * result.triple);
+}
 
 /**
  * @description Function to analyze whether there are double and/or triple
