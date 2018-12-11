@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const rawClaims = fs.readFileSync("3_input.txt", { encoding: "utf-8" });
+const rawClaims = fs.readFileSync("input.txt", { encoding: "utf-8" });
 
 const claims = rawClaims
   .trim()

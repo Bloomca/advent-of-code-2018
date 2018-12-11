@@ -1,7 +1,6 @@
 const fs = require("fs");
 
-// input stays the same, so we can just read 1_input.txt file
-const input = fs.readFileSync("1_input.txt", { encoding: "utf-8" });
+const input = fs.readFileSync("input.txt", { encoding: "utf-8" });
 
 const nums = input
   .trim()

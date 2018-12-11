@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const data = fs
-  .readFileSync("8_input.txt", { encoding: "utf-8" })
+  .readFileSync("input.txt", { encoding: "utf-8" })
   .trim()
   .split(" ")
   .map(Number);
@@ -28,9 +28,8 @@ function parseNodes(nodes) {
 
   const sum = dataWithoutChildren
     .slice(0, metadataNumber)
-    // indexes start from 1, not from 0
-    .map(index => results[index - 1])
-    .filter(Boolean)
+    .map(index => results[index])
+    .map(Boolean)
     .reduce((acc, x) => acc + x, 0);
 
   return [sum, restNodes];
@@ -38,4 +37,4 @@ function parseNodes(nodes) {
 
 const result = parseNodes(data);
 
-console.log(result[0]);
+console.log(result);

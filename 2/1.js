@@ -2,7 +2,7 @@ module.exports.analyzeString = analyzeString;
 
 const fs = require("fs");
 
-const input = fs.readFileSync("2_input.txt", { encoding: "utf-8" });
+const input = fs.readFileSync("input.txt", { encoding: "utf-8" });
 
 const strings = input.trim().split("\n");
 

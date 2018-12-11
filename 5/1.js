@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const originalPolymer = fs
-  .readFileSync("5_input.txt", { encoding: "utf-8" })
+  .readFileSync("input.txt", { encoding: "utf-8" })
   .trim();
 let polymer = originalPolymer;
 

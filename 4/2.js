@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const rawTimetable = fs.readFileSync("4_input.txt", { encoding: "utf-8" });
+const rawTimetable = fs.readFileSync("input.txt", { encoding: "utf-8" });
 
 const timetable = rawTimetable
   .trim()
@@ -69,34 +69,38 @@ timetable.reduce((status, data) => {
   return status;
 }, {});
 
-const sleepingTimeByGuard = Object.keys(guards).map(id => ({
-  id,
-  time: guards[id].sleepingTime
-}));
+const frequentMinutesGuards = Object.keys(guards).map(id => {
+  const guard = guards[id];
 
-sleepingTimeByGuard.sort((a, b) => b.time - a.time);
-
-const mostSleepingGuard = sleepingTimeByGuard[0];
-
-const minutes = Object.keys(guards[mostSleepingGuard.id].minutes).map(
-  minute => ({
+  const minutes = Object.keys(guard.minutes).map(minute => ({
     minute,
-    value: guards[mostSleepingGuard.id].minutes[minute]
-  })
-);
+    value: guard.minutes[minute]
+  }));
 
-minutes.sort((a, b) => b.value - a.value);
+  minutes.sort((a, b) => b.value - a.value);
+  const minute = (minutes[0] && minutes[0].minute) || 0;
+  const times = (minutes[0] && minutes[0].value) || 0;
 
-console.log(`most sleeping guard id is ${mostSleepingGuard.id}`);
-console.log(`he slept in total ${mostSleepingGuard.time} minutes`);
+  return { id, minute, times };
+});
+
+frequentMinutesGuards.sort((a, b) => b.times - a.times);
+
+const mostSleepingGuard = frequentMinutesGuards[0];
+
 console.log(
-  `the most common minute is ${minutes[0].minute}, total ${
-    minutes[0].value
+  `most frequently sleeping at the same minute guard id is ${
+    mostSleepingGuard.id
+  }`
+);
+console.log(
+  `the most common minute is ${mostSleepingGuard.minute}, total ${
+    mostSleepingGuard.times
   } mins were slept during it`
 );
 console.log(
   `Multiplication of ID * most sleeping minute is ${mostSleepingGuard.id *
-    minutes[0].minute}`
+    mostSleepingGuard.minute}`
 );
 
 function parseData(str) {
