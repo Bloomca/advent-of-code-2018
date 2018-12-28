@@ -3,6 +3,9 @@ module.exports = {
     ecmaVersion: 2018
   },
   extends: "airbnb-base",
+  env: {
+    node: true
+  },
   rules: {
     quotes: ["error", "double", { avoidEscape: true }],
     "no-plusplus": 0,
