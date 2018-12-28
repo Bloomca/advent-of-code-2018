@@ -1,7 +1,7 @@
 const fs = require("fs");
-const { analyzeString } = require("./1");
+const { analyzeString } = require("./util");
 
-const input = fs.readFileSync("input.txt", { encoding: "utf-8" });
+const input = fs.readFileSync("2/input.txt", { encoding: "utf-8" });
 
 const strings = input.trim().split("\n");
 

@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const dots = fs
-  .readFileSync("input.txt", { encoding: "utf-8" })
+  .readFileSync("6/input.txt", { encoding: "utf-8" })
   .trim()
   .split("\n")
   .map(coords => {

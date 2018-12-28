@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const rawTimetable = fs.readFileSync("input.txt", { encoding: "utf-8" });
+const rawTimetable = fs.readFileSync("4/input.txt", { encoding: "utf-8" });
 
 const timetable = rawTimetable
   .trim()
