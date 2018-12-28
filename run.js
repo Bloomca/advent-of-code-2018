@@ -5,6 +5,11 @@ const taskNumber = parseInt(process.argv[2], 10);
 
 if (Number.isNaN(taskNumber)) {
   console.error("Sorry, you have to provide a number as an argument");
+  console.error(
+    `You provided "${
+      process.argv[2]
+    }" as your input and we parsed it as ${taskNumber}`
+  );
   process.exit(1);
 }
 
@@ -25,5 +30,7 @@ try {
 } catch (err) {
   if (err.code === "MODULE_NOT_FOUND") {
     console.error("Seems there is no solution yet.");
+  } else {
+    console.error(err.message);
   }
 }
