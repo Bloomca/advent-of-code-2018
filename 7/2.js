@@ -75,8 +75,6 @@ const WORKERS = 5;
 let otherOptions = [];
 
 main: while (true) {
-  console.log(path, duration, options.toString());
-
   // if something is planned at this exact second
   if (plannedByTime[duration]) {
     const step = plannedByTime[duration].step;
